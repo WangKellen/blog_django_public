@@ -80,17 +80,26 @@ WSGI_APPLICATION = 'django_nextjs_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'blog_db',  # 数据库名
+#         'USER': 'root',  # MySQL 用户名
+#         'PASSWORD': '123456',  # MySQL 用户密码
+#         'HOST': 'localhost',  # 数据库主机地址
+#         'PORT': '3306',  # 数据库端口
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'blog_db',  # 数据库名
-        'USER': 'root',  # MySQL 用户名
-        'PASSWORD': '123456',  # MySQL 用户密码
-        'HOST': 'localhost',  # 数据库主机地址
-        'PORT': '3306',  # 数据库端口
+        'NAME': 'myblog',
+        'USER': 'mybloguser',
+        'PASSWORD': 'mypassword',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
