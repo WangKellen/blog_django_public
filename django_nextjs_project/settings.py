@@ -90,6 +90,7 @@ WSGI_APPLICATION = 'django_nextjs_project.wsgi.application'
 #         'PORT': '3306',  # 数据库端口
 #     }
 # }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
