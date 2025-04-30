@@ -1,10 +1,15 @@
 from django.http import JsonResponse
+from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from blog.models import BlogPost, Category, Tag
 from rest_framework import generics
 from rest_framework import serializers
 from django.db.models import Q
+
+from projects.models import Project
+from projects.serializers import ProjectSerializer
+
 
 class BlogPostSerializer(serializers.ModelSerializer):
     tags = serializers.StringRelatedField(many=True)
@@ -55,3 +60,9 @@ class TagList(generics.ListAPIView):
 class BlogPostDetail(generics.RetrieveAPIView):
     queryset = BlogPost.objects.all()
     serializer_class = BlogPostSerializer
+
+@api_view(['GET'])
+def project_list(request):
+    projects = Project.objects.filter(is_visible=True)
+    serializer = ProjectSerializer(projects, many=True)
+    return Response(serializer.data)
